@@ -93,34 +93,43 @@ const egualfunction=() => {
         actualnumber="";
         actualoperator="";
         } 
-        console.log(sum); 
+        
     }
     
   }; /*a for ciklus vége, utolsó művelet elvégzése*/
-
+  actualnumbertonumber=parseFloat(actualnumber);
    switch (lastoperator) {
-        case "+": sum=sum+actualnumber;
+        case "+": sum=sum+actualnumbertonumber;
         break;
 
-        case "-": sum=sum-actualnumber;
+        case "-": sum=sum-actualnumbertonumber;
         break;
         
-        case "*": sum=sum*actualnumber;
+        case "*": sum=sum*actualnumbertonumber;
         break;
 
-        case "/": sum=sum/actualnumber;
+        case "/": sum=sum/actualnumbertonumber;
         break;            
 
         default: "";
           break;
       }      
    // Eredmény kiíratása, számolás folytatásának biztosítása
+   
    calculator=sum.toPrecision(10).toString(10);
-   displayfunction();
-  
-  egualsignpressed=true;
-  
-    }  
+   
+    if (calculator==="NaN") {
+    calculator="num error";
+    displayfunction();
+    calculator=""
+    egualsignpressed=false;
+  }
+  else {  
+    displayfunction()
+    egualsignpressed=true;
+   
+    } 
+  }  
   
 
 
@@ -283,4 +292,5 @@ nine. addEventListener("click", () => {itempusher("9")} );
 six. addEventListener("click", () => {itempusher("6")} );
 three. addEventListener("click", () => {itempusher("3")} );
 clear. addEventListener("click", () => {itempusher("c")} );
-equal. addEventListener("click", () => {egualfunction(calculator)} ); 
+equal. addEventListener("click", () => {egualfunction(calculator)} );
+
